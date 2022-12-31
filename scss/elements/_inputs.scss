@@ -1,0 +1,70 @@
+@use "../elements/iconsSVGs" as *;
+
+// Change Theme switch
+#darkMode {
+    display: none;
+}
+
+.dark-mode__toggle {
+    width: 65px;
+    height: 30px;
+    padding: 5px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-radius: 50px;
+    background-color: var(--clr-primary);
+    cursor: pointer;
+
+    .switch-ball {
+        width: 24px;
+        height: 24px;
+
+        position: absolute;
+        top: 50%;
+        left: 2px;
+
+        background-color: var(--clr-gray-200);
+        transform: translate(0px, -50%);
+        transition: transform var(--transition-long) linear;
+    }
+
+    .icon {
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0;
+        z-index: 100;
+        background-color: var(--clr-body);
+    }
+
+    .icon--sun {
+        opacity: 0;
+    }
+
+    .icon--moon {
+        opacity: 1;
+        background-color: var(--clr-body);
+    }
+}
+
+#darkMode:checked + .dark-mode__toggle {
+    background-color: var(--clr-accent);
+
+    .icon--sun {
+        opacity: 1;
+        background-color: var(--clr-accent);
+    }
+
+    .icon--moon {
+       opacity: 0;
+    }
+}
+
+#darkMode:checked + .dark-mode__toggle .switch-ball {
+	transform: translate(36px, -50%);
+}
+
+// End of Change Theme switch Styles

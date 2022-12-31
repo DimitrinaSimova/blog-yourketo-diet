@@ -1,0 +1,38 @@
+@use '../settings/variables' as *;
+
+.icon--moon {
+    -webkit-mask: url(#{$path-asset-images}icons/moon.svg);
+    mask: url(#{$path-asset-images}icons/moon.svg);
+}
+
+.icon--sun {
+    -webkit-mask: url(#{$path-asset-images}icons/sun.svg);
+    mask: url(#{$path-asset-images}icons/sun.svg);
+}
+
+.icon--chevron-left {
+    -webkit-mask: url(#{$path-asset-images}icons/chevron-left-solid.svg);
+    mask: url(#{$path-asset-images}icons/chevron-left-solid.svg);
+}
+
+.icon--chevron-right {
+    -webkit-mask: url(#{$path-asset-images}icons/chevron-right-solid.svg);
+    mask: url(#{$path-asset-images}icons/chevron-right-solid.svg);
+}
+
+.icon {
+    display: inline-block;
+    
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    -webkit-mask-size: contain;
+    mask-size: contain;
+
+    -webkit-mask-position-x: center;
+    mask-position: center;
+
+    &.active {
+        background-color: var(--clr-primary);
+    }
+}

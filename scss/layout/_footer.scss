@@ -1,0 +1,72 @@
+@use '../mixins/bp' as m;
+@use '../elements/headlines' as *;
+
+footer {
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+
+    color: var(--clr-body);
+
+    @include m.bp(md) {
+        flex-wrap: nowrap;
+        margin-top: 4rem;
+
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+}
+
+.footer__logo {
+    display: block;
+    width: 6rem;
+    opacity: 0.2;
+
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-duration: var(--transition-medium);
+
+    &:hover {
+        opacity: 1;
+    }
+
+    @include m.bp(md) {
+        width: 7rem;
+    }
+}
+
+.footer__text {
+    @extend .text-xs;
+    color: var(--clr-footer);
+
+    @include m.bp(md) {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+}
+
+.copyright_text {
+    margin-top: 2.5rem;
+    text-align: center;
+    margin: inherit;
+
+    @include m.bp(md) {
+        margin-top: 0;
+    }
+}
+
+.copyright_text-right {
+    text-align: center;
+
+    @include m.bp(md) {
+        text-align: right;
+    }
+}

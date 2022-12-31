@@ -1,0 +1,123 @@
+@use '../mixins/bp' as m;
+
+// header {
+//     padding-left: 3.75rem;
+//     padding-right: 3.75rem;
+// }
+
+.logo {
+    width: 4rem;
+    margin-left: 2rem;
+
+    @include m.bp(md) {
+        width: 7rem;
+        margin-left: 4rem;
+    }
+}
+
+.main-nav {
+    visibility: hidden;
+    display: flex;
+    height: 100%;
+
+    opacity: 0;
+    transition: all var(--transition-long) ease-in-out;
+
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 600;
+
+    flex-direction: column;
+
+    border-right: var(--border-100) var(--clr-gray-200);
+    background-color: var(--clr-body);
+
+    .logo {
+        margin-left: 0;
+        padding-bottom: 4rem;
+    }
+
+    @include m.bp(md) {
+        visibility: visible;
+        opacity: 1;
+
+        padding-top: 2rem;
+        padding-bottom: 0;
+        position: inherit;
+
+        flex-direction: row;
+        justify-content: center;
+        // align-items: center;
+
+        border-right: none;
+
+        .main-nav__item {
+            padding-right: 2.5rem;
+        
+            &:last-of-type {
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+.show-nav {
+    visibility: visible;
+    opacity: 1;
+
+    transition: all var(--transition-long) ease-in-out;
+}
+
+.main-nav__link {
+    padding-bottom: 2.25rem;
+
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+
+    @include m.bp(md) {
+        &.active {
+            border-bottom: var(--border-200);
+            border-color: var(--clr-accent);
+        }
+    }
+}
+    
+
+////////////////////////////
+/// Mobile navigation
+.navbar-burger,
+.navbar-close,
+.main-nav .logo {
+    @include m.bp(md) {
+        display: none;
+    }
+}
+
+.navbar-burger {
+    padding: 0.75rem;
+}
+
+.burger__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.navbar-close {
+    padding: 0.5rem;
+
+    position: absolute;
+    top: 1.5rem;
+    right: -1.25rem;
+    z-index: 900;
+
+    svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+}

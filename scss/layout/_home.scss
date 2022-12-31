@@ -1,0 +1,184 @@
+@use '../mixins/bp' as m;
+@use '../settings/utilities' as *;
+@use '../settings/variables' as *;
+@use '../elements/iconsSVGs' as *;
+
+.blog-intro__image {
+    margin-top: 4rem;
+    margin-bottom: 2.75rem;
+}
+
+.posts__thumb {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+    vertical-align: middle;
+
+    @extend .rounded-small;
+
+    @include m.bp(md) {
+        width: 18rem;
+        height: 7rem;
+        border-radius: inherit;
+    }
+}
+
+/////////////////////
+/// Keto features
+/// 
+.section-headline-2-cols {
+    flex-direction: column;
+
+    h2 {
+        margin-bottom: 1.75rem;
+    }
+
+    @include m.bp(md) {
+        flex-direction: row;
+
+        h2 {
+            margin-bottom: auto;
+        }
+    }
+}
+
+.keto-features {
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    @include m.bp(md) {
+        justify-content: space-between;
+    }
+}
+
+.keto__icon {
+    width: 8rem;
+    vertical-align: middle;
+
+    border: var(--border-200) var(--clr-primary);
+
+    @include m.bp(md) {
+        width: 9rem;
+    }
+}
+
+.keto__text {
+    max-width: 8rem;
+}
+
+// End of keto-features
+
+//////////////////
+/// Form styles
+.frm-sign-up {
+    flex-direction: column;
+
+    button {
+        width: 100%;
+        padding-left: 2.875rem;
+        padding-right: 2.875rem;
+        border: none;
+        outline: none;
+    }
+
+    @include m.bp(md) {
+        flex-direction: row;
+
+        button {
+            width: auto;
+        }
+    }
+}
+
+.sign-up_input {
+    width: 100%;
+
+    margin-bottom: 0.5rem;
+
+    &::-webkit-input-placeholder,
+    &::-moz-placeholder,
+    &:-moz-placeholder {
+        color: var(--clr-gray-500);
+        font-size: 0.875rem;
+        font-style: italic;
+    }
+
+    @include m.bp(md) {
+        width: 20rem;
+        margin-bottom: 0;
+        margin-right: 0.5rem;
+    }
+
+}
+
+/////////////////////////
+/// Testimonials styles
+.avatar {
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.slide__text {
+    width: 24rem;
+}
+
+// Overriding Slick slider styles
+.slick-next {
+    right: 0;
+}
+
+.slick-prev {
+    left: 0px;
+}
+
+.slick-prev.slick-arrow,
+.slick-next.slick-arrow {
+    width: 2.7rem;
+    height: 2.7rem;
+    
+    background-repeat: no-repeat;
+
+    &:before {
+        content: "";
+    }
+}
+
+.slick-prev.slick-arrow {
+    @extend .icon;
+    @extend .icon--chevron-left;
+    background-color: var(--clr-accent);
+}
+
+.slick-next.slick-arrow {
+    @extend .icon;
+    @extend .icon--chevron-right;
+    background-color: var(--clr-accent);
+}
+
+.slick-dots li{
+    width: 2rem;
+    height: 0.25rem;
+
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+.slick-dots li button {
+    width: 2rem;
+    height: 0.25rem;
+    padding: 0;
+}
+
+.slick-dots li button:before {
+    content: "";
+    width: 2rem;
+    height: 0.25rem;
+
+    background-color: var(--clr-primary);
+}
+
+.slick-dots li.slick-active button:before
+{
+    background-color: var(--clr-accent);
+}
